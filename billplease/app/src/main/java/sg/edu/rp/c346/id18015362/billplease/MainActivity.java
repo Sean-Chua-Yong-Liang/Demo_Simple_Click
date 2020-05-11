@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
                 total.setText(String.format("Total Bill: $%.2f", totalCost));
                 splitbill.setText(String.format("Each Pays: $%.2f", splitCost));
-
-                //COMPLETE
+                
             }
         });
 
