@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     Button split;
     Button reset;
     double totalCost;
-    int intPax;
+    double dblePax;
     double splitCost;
-    int discountGiven;
+    double discountGiven;
 
 
     @Override
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     String discAmount = discount.getText().toString();
-                    discountGiven = Integer.parseInt(discAmount);
+                    discountGiven = Double.parseDouble(discAmount);
                 }
                 String cost = amount.getText().toString();
                 totalCost = Double.parseDouble(cost);
@@ -61,20 +61,20 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(svsBtn.isChecked() && !gstBtn.isChecked()) {
-                    totalCost = totalCost * (110/100);
+                    totalCost = totalCost * 1.1;
                 }else if(!svsBtn.isChecked() && gstBtn.isChecked()){
-                    totalCost = totalCost * (107/100);
+                    totalCost = totalCost * 1.07;
                 }else if (svsBtn.isChecked() && gstBtn.isChecked()) {
-                    totalCost = totalCost * (110/100);
-                    totalCost = totalCost * (107/100);
+                    totalCost = totalCost * 1.1;
+                    totalCost = totalCost * 1.07;
                 }
                 String paying = pax.getText().toString();
-                intPax = Integer.parseInt(paying);
-                splitCost = totalCost/intPax;
+                dblePax = Double.parseDouble(paying);
+                splitCost = totalCost/dblePax;
 
                 total.setText(String.format("Total Bill: $%.2f", totalCost));
                 splitbill.setText(String.format("Each Pays: $%.2f", splitCost));
-                
+
             }
         });
 
